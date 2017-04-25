@@ -1,0 +1,18 @@
+version: "3.1"
+services:
+  go-server:
+    build: ./go-server
+    image: go-server
+    container_name: go-server
+    hostname: go-server
+    networks:
+      - go-net
+    ports:
+      - "8153-8154:8153-8154"
+  go-agent:
+    build: ./go-agent
+    image: go-agent
+    networks:
+      - go-net
+networks:
+  go-net:
